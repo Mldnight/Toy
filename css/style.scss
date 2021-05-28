@@ -1,3 +1,6 @@
+@import "header.scss";
+@import "footer.scss";
+@import "social.scss";
 html, body {
   height: 100%;
 }
@@ -5,128 +8,103 @@ body{
 	display: flex;
 	flex-direction: column;
 }
+
+$xl: 1400px;
+$lg: 1200px;
+$md:900px;
+$sm: 670px;
+$e-sm:415px;
+
+
+@mixin breakpoint($br) {
+  @media (max-width: $br){
+    @content;
+  }
+}
 .content{
 	flex: 1 0 auto;
+	position: relative;
+	//z-index: 10;
+}
+.background{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 5;
+}
+.white{
+	min-width: 97px;
+	//width: 15%;
+	height: 100%;
+}
+.yellow{
+	max-width: 1620px;
+	
+	width: 100%;
+	height: 100%;
+	background-color: #FFEA2F;
+}
+.wraper{
+	margin-top: 120px;
+	width: 100%;
 
+	position: relative;
+	z-index: 10;
+	
 }
 footer{
 	flex-shrink: 0;
 	background-color: #EFEFEF;
 }
-.header{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 
-	&_logo{
-		margin-left: 80px;
-	}
-
-	&_nav{
-		display: flex;
-		align-items: center;
-	}
-}
-.nav{
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 25px;
-
-	&_link{
-		text-decoration: none;
-		color: black;
-		margin-right: 55px;
-
-		&:hover{
-			color: #FF0000;
-		}
-	}
-
-}
-.lang{
-	text-transform: uppercase;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-
-	background-color: #CE0002;
-	width: 120px;
-	height: 120px;
-
-}
-.footer{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	padding: 10px 0;
-
-}
-
-.copyright{
-	font-style: normal;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 20px;
-	/* identical to box height */
-
-
-	color: #7E7E7E;
-	margin-left: 25px;
-}
-.footer_nav{
-	font-style: normal;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 20px;
-	/* identical to box height */
-
-	text-align: center;
-	
-	&-link{
-		text-decoration: none;
-		color: #7E7E7E;
-		margin-right: 50px;
-
-		&:last-child{
-			margin: 0;
-		}
-	}
-}
-
-.social_link{
-	margin-right: 10px;
-}
-
-.background{
-
-	max-width: 1620px;
-	min-height: 942px;
-
-	background-color: #FFEA2F;
-	background-image: url("../img/1.png");
-	background-repeat: no-repeat;
-	background-position: 800px 170px;
-}
 .main_content{
-	margin-left: 80px;
-}
-.title{
-	font-weight: 800;
-	font-size: 72px;
-	line-height: 85px;
-	text-transform: uppercase;
+	margin-left: 86px;
+	display: flex;
+	position: relative;
+
+	@include breakpoint($xl){
+		margin-left: 50px;
+	}
+
+	@include breakpoint($lg){
+		flex-wrap: wrap;
+	}
 }
 .main_content_wraper{
 	display: flex;
 }
-.social{
-	display: flex;
-	flex-direction: column;
+
+.title{
+	max-width: 1077px;
+	font-weight: 800;
+	font-size: 72px;
+	line-height: 85px;
+	text-transform: uppercase;
+
+	margin-top: 206px;
+	margin-bottom: 80px;
+
+	@include breakpoint($xl){
+		margin-top: 90px;
+		margin-bottom: 80px;
+		font-size: 62px;
+		line-height: 72px;
+	}
+
+	
 }
 
 .btn_more{
+	width: 120px;
+	height: 102px;
+	margin-left: 95px;
+	margin-right: 66px;
+	margin-top: 20px;
 	font-weight: 800;
 	font-size: 22px;
 	line-height: 27px;
@@ -135,10 +113,40 @@ footer{
 	text-decoration: none;
 
 	background-color: #CE0002;
+
+	@include breakpoint($xl){
+		margin-left: 50px;
+		margin-right: 40px;
+		margin-top: 20px;
+	}
+	@include breakpoint($lg){
+		margin-left: 0px;
+	}
 }
 
 .description{
+	max-width: 460px;
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 30px;
+}
+
+.picture {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	margin-top: 50px;
+	margin-right: 40px;
+	img{
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	@include breakpoint($lg){
+		width: 100%;
+		margin-bottom: 40px;
+	}
+
 }
